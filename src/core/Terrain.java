@@ -11,16 +11,16 @@ import java.lang.*;
 import java.io.*;
 
 public class Terrain extends JPanel {
-    private final int panelWidth = 720/2, panelHeight = 480/2, zoom = 2;
+    private final int panelWidth = 720/2, panelHeight = 480/2, zoom = 2/1;
 
     private boolean isRandomlyGenerated;
 
     // nombre de fourmis dans la fourmillière
-    private final static int NUMER_OF_ANTS = 700;
+    private final static int NUMER_OF_ANTS = 700/2;
 
     // nombre de cases nourriture initialement dans le cas 
     // ou génération aléatoire de terrain
-    public final int RAND_NOURRITURE = 500;
+    public final int RAND_NOURRITURE = 70/2;
 
     //
     // /!\ une densité trop élevée bloque l'application 
