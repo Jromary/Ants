@@ -1,4 +1,4 @@
-//import javax.swing.*;
+package core;//import javax.swing.*;
 //import java.awt.*;
 //import java.awt.image.*;
 //import java.util.*;
