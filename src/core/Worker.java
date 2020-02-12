@@ -57,7 +57,11 @@ public class Worker {
                 if (objectif == null){
                     objectif = searchForFoodPheromone(null);
                     if (objectif == null){
+//                        if(Math.random() < 0.999){
                         objectif = randomDirection();
+//                        }else{
+//                            objectif = direction(terrain.fleeHome(currentPos));
+//                        }
                     }
                 }
             }

@@ -11,16 +11,16 @@ import java.lang.*;
 import java.io.*;
 
 public class Terrain extends JPanel {
-    private final int panelWidth = 720/2, panelHeight = 480/2, zoom = 2/1;
+    private final int panelWidth = 720, panelHeight = 480, zoom = 1;
 
     private boolean isRandomlyGenerated;
 
     // nombre de fourmis dans la fourmillière
-    private final static int NUMER_OF_ANTS = 700/2;
+    private final static int NUMER_OF_ANTS = 7000;
 
     // nombre de cases nourriture initialement dans le cas 
     // ou génération aléatoire de terrain
-    public final int RAND_NOURRITURE = 70/2;
+    public final int RAND_NOURRITURE = 700;
 
     //
     // /!\ une densité trop élevée bloque l'application 
@@ -160,10 +160,36 @@ public class Terrain extends JPanel {
             retPos = new Position(x+1, y);
         }
         if ( y > 0 && vague[x][y-1] < bestValue){
-            bestValue = vague[x][y];
+            bestValue = vague[x][y-1];
             retPos = new Position(x, y-1);
         }
         if ( y < panelHeight-1 && vague[x][y+1] < bestValue){
+            bestValue = vague[x][y+1];
+            retPos = new Position(x, y+1);
+        }
+        return retPos;
+    }
+
+    public Position fleeHome(Position position){
+        int x, y;
+        x = position.x;
+        y = position.y;
+        int bestValue = Integer.MIN_VALUE;
+        Position retPos = null;
+
+        if (x > 1 && vague[x-1][y] > bestValue){
+            bestValue = vague[x-1][y];
+            retPos = new Position(x-1, y);
+        }
+        if ( x < panelWidth-2 && vague[x+1][y] > bestValue){
+            bestValue = vague[x+1][y];
+            retPos = new Position(x+1, y);
+        }
+        if ( y > 1 && vague[x][y-1] > bestValue){
+            bestValue = vague[x][y-1];
+            retPos = new Position(x, y-1);
+        }
+        if ( y < panelHeight-2 && vague[x][y+1] > bestValue){
             bestValue = vague[x][y+1];
             retPos = new Position(x, y+1);
         }
